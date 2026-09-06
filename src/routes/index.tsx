@@ -23,6 +23,8 @@ import {
   ExternalLink,
   ArrowRight,
   ArrowLeft,
+  Play,
+  Camera,
 } from "lucide-react";
 
 import {
@@ -30,6 +32,9 @@ import {
   CONTACT_INFO,
   GALLERY_ITEMS_AR,
   GALLERY_ITEMS_EN,
+  ROAD_STATIC_ITEMS_AR,
+  ROAD_STATIC_ITEMS_EN,
+  RoadMediaItem,
   CONTENT,
 } from "@/lib/translations";
 import { sendContactEmail } from "@/lib/emailjs";
@@ -56,6 +61,10 @@ function Index() {
   const [projectCategory, setProjectCategory] = useState<string>("all");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activeImage, setActiveImage] = useState<any>(null);
+
+  // Static Road Media Section State
+  const [staticFilter, setStaticFilter] = useState<string>("all");
+  const [activeStaticMedia, setActiveStaticMedia] = useState<RoadMediaItem | null>(null);
 
   // Gallery Carousel Slider State
   const [slideIndex, setSlideIndex] = useState(0);
@@ -181,6 +190,31 @@ function Index() {
     const currentIndex = galleryItems.findIndex((g) => g.id === activeImage.id);
     const nextIndex = (currentIndex + 1) % galleryItems.length;
     setActiveImage(galleryItems[nextIndex]);
+  };
+
+  // Static Road Media Handlers
+  const roadStaticItems = lang === "ar" ? ROAD_STATIC_ITEMS_AR : ROAD_STATIC_ITEMS_EN;
+
+  const filteredStaticRoads = useMemo(() => {
+    if (staticFilter === "all") return roadStaticItems;
+    return roadStaticItems.filter((item) => item.categorySlug === staticFilter);
+  }, [staticFilter, roadStaticItems]);
+
+  const openStaticMediaLightbox = (item: RoadMediaItem) => setActiveStaticMedia(item);
+  const closeStaticMediaLightbox = () => setActiveStaticMedia(null);
+
+  const prevStaticMediaLightboxItem = () => {
+    if (!activeStaticMedia || filteredStaticRoads.length === 0) return;
+    const currentIndex = filteredStaticRoads.findIndex((g) => g.id === activeStaticMedia.id);
+    const prevIndex = (currentIndex - 1 + filteredStaticRoads.length) % filteredStaticRoads.length;
+    setActiveStaticMedia(filteredStaticRoads[prevIndex] ?? null);
+  };
+
+  const nextStaticMediaLightboxItem = () => {
+    if (!activeStaticMedia || filteredStaticRoads.length === 0) return;
+    const currentIndex = filteredStaticRoads.findIndex((g) => g.id === activeStaticMedia.id);
+    const nextIndex = (currentIndex + 1) % filteredStaticRoads.length;
+    setActiveStaticMedia(filteredStaticRoads[nextIndex] ?? null);
   };
 
   return (
@@ -361,6 +395,9 @@ function Index() {
             alt="Red Sea Paved Highway Infrastructure"
             width={1024}
             height={1024}
+            loading="eager"
+            // @ts-ignore
+            fetchPriority="high"
             className="h-full w-full object-cover object-center scale-105 transition-all duration-1000 ease-out"
           />
           {/* Light Mode Overlay */}
@@ -521,21 +558,21 @@ function Index() {
             {/* Feature Photo Showcase */}
             <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-panel dark:border-slate-800 dark:bg-slate-900 group">
               <img
-                src={IMAGES.rollerPaving}
-                alt="Asphalt Road Roller Construction Site"
+                src="/roads/road-02.jpg"
+                alt="Asphalt Road Paver Construction Site"
                 width={1269}
                 height={886}
                 loading="lazy"
                 decoding="async"
-                className="h-[440px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="h-[460px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 inset-x-6 text-white">
                 <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                  مواقع التنفيذ الميداني
+                  {t.profile.showcaseTag}
                 </span>
                 <h4 className="mt-2 text-lg font-bold text-white">
-                  أحدث معدات الرصف والدك الإنعكاسي لضمان الجودة
+                  {t.profile.showcaseTitle}
                 </h4>
               </div>
             </div>
@@ -633,10 +670,10 @@ function Index() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 inset-x-6 text-white">
                 <span className="rounded-full bg-slate-900/80 backdrop-blur-md px-3.5 py-1.5 text-xs font-bold text-white border border-slate-700">
-                  نطاق العمل: محافظة البحر الأحمر
+                  {t.classification.scopeLabel}
                 </span>
                 <h4 className="mt-3 text-xl font-bold text-white">
-                  الغردقة – رأس غارب – سفاجا – مرسى علم – الجونة – سهل حشيش
+                  {t.classification.scopeCities}
                 </h4>
               </div>
             </div>
@@ -750,6 +787,154 @@ function Index() {
         </div>
       </section>
 
+      {/* SECTION: STATIC ROAD SHOWCASE / معرض مشروعات وأعمال الطرق الميدانية (الثابت) */}
+      <section
+        id="road-static-gallery"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-8 sm:py-24"
+      >
+        <div className="mb-10 text-center sm:text-start">
+          <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-50 dark:bg-red-950/40 px-3.5 py-1.5 text-xs font-bold text-red-600 dark:text-red-400 mb-3 shadow-sm">
+            <Camera className="size-3.5" />
+            <span>{t.roadStatic?.kicker || "المعرض الميداني الثابت"}</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
+            {t.roadStatic?.title}
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            {t.roadStatic?.subtitle}
+          </p>
+          <div className="mt-4 h-1 w-20 bg-red-600 rounded-full sm:mx-0 mx-auto" />
+        </div>
+
+        {/* Category Filter Pills */}
+        <div className="mb-8 flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setStaticFilter("all")}
+            className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+              staticFilter === "all"
+                ? "bg-red-600 text-white shadow-md scale-105"
+                : "bg-slate-200/80 text-slate-700 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            {t.roadStatic?.filterAll || "الكل"} ({roadStaticItems.length})
+          </button>
+          <button
+            onClick={() => setStaticFilter("paving")}
+            className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+              staticFilter === "paving"
+                ? "bg-red-600 text-white shadow-md scale-105"
+                : "bg-slate-200/80 text-slate-700 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            {t.roadStatic?.filterPaving || "أعمال الأسفلت والرصف"}
+          </button>
+          <button
+            onClick={() => setStaticFilter("machinery")}
+            className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+              staticFilter === "machinery"
+                ? "bg-red-600 text-white shadow-md scale-105"
+                : "bg-slate-200/80 text-slate-700 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            {t.roadStatic?.filterMachinery || "الأسطول والمعدات"}
+          </button>
+          <button
+            onClick={() => setStaticFilter("base")}
+            className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
+              staticFilter === "base"
+                ? "bg-red-600 text-white shadow-md scale-105"
+                : "bg-slate-200/80 text-slate-700 hover:bg-slate-300 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            {t.roadStatic?.filterBase || "التجهيز والدك"}
+          </button>
+       
+        </div>
+
+        {/* Media Grid — Images Only, 3 per row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filteredStaticRoads.filter(item => item.type !== "video").map((item) => (
+            <div
+              key={item.id}
+              onClick={() => openStaticMediaLightbox(item)}
+              className="group relative cursor-pointer overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-red-500/50 hover:shadow-panel dark:border-slate-800 dark:bg-[#132244]"
+            >
+              {/* Image Container */}
+              <div className="relative h-56 w-full overflow-hidden bg-slate-950">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-center justify-center">
+                  <div className="flex size-11 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md text-white border border-white/40 shadow-lg">
+                    <ZoomIn className="size-6" />
+                  </div>
+                </div>
+
+                {/* Category Badge */}
+                <div className="absolute top-3 right-3 left-3 flex items-center justify-between pointer-events-none">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-red-600/90 px-2.5 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur-md">
+                    <Sparkles className="size-3 text-red-200" />
+                    <span>{item.category}</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Card Footer — full text, no clamp */}
+              <div className="p-4">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Full-Width Autoplay Video (muted, no play button) */}
+        {roadStaticItems.some(item => item.type === "video") && (
+          <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-950 dark:border-slate-800 shadow-panel">
+            <div className="relative w-full">
+              <video
+                src="/roads/road-video-01.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full max-h-[500px] object-cover"
+              />
+              {/* Bottom info bar */}
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent p-5 sm:p-7">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-600 px-3 py-1 text-xs font-bold text-white shadow-md mb-2">
+                  <Play className="size-3 fill-current" />
+                  {lang === "ar" ? "فيديو ميداني حصري" : "Exclusive Field Video"}
+                </span>
+                <h3 className="text-base sm:text-xl font-bold text-white leading-snug">
+                  {lang === "ar"
+                    ? "فيديو ميداني: عمليات فرد ودك الأسفلت بالموقع"
+                    : "Field Video: On-Site Asphalt Paving & Compaction Operations"}
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-slate-300">
+                  {lang === "ar"
+                    ? "تغطية مرئية حية لعمليات فرد الخلطة الأسفلتية والدك بالهراسات الثقيلة في موقع التنفيذ."
+                    : "Live video coverage of hot-mix asphalt laying and heavy roller compaction on site."}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
       {/* SECTION 6: GALLERY & LIGHTBOX / معرض الصور والأنيميشن الاحترافي (Carousel Slider) */}
       <section
         id="gallery"
@@ -825,28 +1010,40 @@ function Index() {
                     onClick={() => openLightbox(g)}
                     className="group relative cursor-pointer overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-panel transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-900 animate-in fade-in zoom-in-95 duration-300"
                   >
-                    {/* High-Res Image Display */}
-                    <div className="h-72 sm:h-96 w-full overflow-hidden bg-slate-950">
-                      <img
-                        src={g.src}
-                        alt={g.title}
-                        width={1400}
-                        height={1000}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
+                    {/* Media Display: Video or Image */}
+                    <div className="h-72 sm:h-96 w-full overflow-hidden bg-slate-950 relative">
+                      {g.type === "video" ? (
+                        <video
+                          src={g.src}
+                          muted
+                          autoPlay
+                          loop
+                          playsInline
+                          preload="metadata"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <img
+                          src={g.src}
+                          alt={g.title}
+                          width={1400}
+                          height={1000}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      )}
                     </div>
 
                     {/* Gradient Overlay & Content Badge */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent flex flex-col justify-between p-6 sm:p-8 text-white">
                       <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3.5 py-1.5 text-xs font-bold text-white shadow-md">
-                          <Sparkles className="size-3.5 text-red-200" />
+                        <span className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-bold text-white shadow-md ${g.type === "video" ? "bg-amber-600" : "bg-red-600"}`}>
+                          {g.type === "video" ? <Play className="size-3.5 fill-current" /> : <Sparkles className="size-3.5 text-red-200" />}
                           <span>{g.category}</span>
                         </span>
                         <div className="flex size-10 items-center justify-center rounded-2xl bg-slate-900/80 backdrop-blur-md text-white border border-slate-700 group-hover:bg-red-600 transition-colors">
-                          <ZoomIn className="size-5" />
+                          {g.type === "video" ? <Play className="size-5 fill-current" /> : <ZoomIn className="size-5" />}
                         </div>
                       </div>
 
@@ -917,22 +1114,119 @@ function Index() {
               )}
             </button>
 
-            {/* Modal Image Display */}
+            {/* Modal Media Display: Image or Video */}
             <div className="max-h-[70vh] overflow-hidden bg-black flex items-center justify-center">
-              <img
-                src={activeImage.src}
-                alt={activeImage.title}
-                className="max-h-[70vh] w-auto object-contain"
-              />
+              {activeImage.type === "video" ? (
+                <video
+                  src={activeImage.src}
+                  controls
+                  muted
+                  autoPlay
+                  playsInline
+                  className="max-h-[70vh] w-full object-contain"
+                />
+              ) : (
+                <img
+                  src={activeImage.src}
+                  alt={activeImage.title}
+                  className="max-h-[70vh] w-auto object-contain"
+                />
+              )}
             </div>
 
             {/* Modal Info Footer */}
             <div className="p-6 bg-slate-900 text-white">
-              <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white">
-                {activeImage.category}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className={`rounded-full px-3 py-1 text-xs font-bold text-white ${activeImage.type === "video" ? "bg-amber-600" : "bg-red-600"}`}>
+                  {activeImage.category}
+                </span>
+                {activeImage.type === "video" && (
+                  <span className="rounded-full bg-amber-700/60 px-3 py-1 text-xs font-bold text-white flex items-center gap-1">
+                    <Play className="size-3 fill-current" />
+                    <span>{lang === "ar" ? "فيديو ميداني" : "Field Video"}</span>
+                  </span>
+                )}
+              </div>
               <h3 className="mt-3 text-lg font-bold text-white sm:text-xl">{activeImage.title}</h3>
               <p className="mt-1 text-xs sm:text-sm text-slate-300">{activeImage.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* STATIC MEDIA LIGHTBOX MODAL (Photos & Video) */}
+      {activeStaticMedia && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative max-w-4xl w-full overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl">
+            {/* Close Button */}
+            <button
+              onClick={closeStaticMediaLightbox}
+              className="absolute top-4 right-4 z-10 flex size-10 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-red-600 transition-colors cursor-pointer"
+            >
+              <X className="size-6" />
+            </button>
+
+            {/* Prev/Next Buttons */}
+            <button
+              onClick={prevStaticMediaLightboxItem}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex size-11 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-red-600 transition-colors cursor-pointer"
+            >
+              {lang === "ar" ? (
+                <ChevronRight className="size-6" />
+              ) : (
+                <ChevronLeft className="size-6" />
+              )}
+            </button>
+            <button
+              onClick={nextStaticMediaLightboxItem}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex size-11 items-center justify-center rounded-full bg-slate-950/80 text-white hover:bg-red-600 transition-colors cursor-pointer"
+            >
+              {lang === "ar" ? (
+                <ChevronLeft className="size-6" />
+              ) : (
+                <ChevronRight className="size-6" />
+              )}
+            </button>
+
+            {/* Modal Content (Image or Video) */}
+            <div className="max-h-[70vh] overflow-hidden bg-black flex items-center justify-center">
+              {activeStaticMedia.type === "video" ? (
+                <video
+                  src={activeStaticMedia.src}
+                  controls
+                  muted
+                  autoPlay
+                  playsInline
+                  className="max-h-[70vh] w-full object-contain"
+                />
+              ) : (
+                <img
+                  src={activeStaticMedia.src}
+                  alt={activeStaticMedia.title}
+                  className="max-h-[70vh] w-auto object-contain"
+                />
+              )}
+            </div>
+
+            {/* Modal Info Footer */}
+            <div className="p-6 bg-slate-900 text-white">
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white">
+                  {activeStaticMedia.category}
+                </span>
+                {activeStaticMedia.type === "video" && (
+                  <span className="rounded-full bg-amber-600 px-3 py-1 text-xs font-bold text-white flex items-center gap-1">
+                    <Play className="size-3 fill-current" />
+                    <span>{lang === "ar" ? "فيديو ميداني" : "Field Video"}</span>
+                  </span>
+                )}
+              </div>
+              <h3 className="mt-3 text-lg font-bold text-white sm:text-xl">
+                {activeStaticMedia.title}
+              </h3>
+              <p className="mt-1 text-xs sm:text-sm text-slate-300">
+                {activeStaticMedia.desc}
+              </p>
             </div>
           </div>
         </div>
@@ -1028,14 +1322,16 @@ function Index() {
             <div className="mt-3 h-1 w-20 bg-red-600 rounded-full sm:mx-0 mx-auto" />
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {t.team.members.map((m, idx) => (
               <div
                 key={idx}
                 className="rounded-2xl border border-slate-200 bg-white p-7 shadow-card text-center dark:border-slate-800 dark:bg-[#132244] group hover:-translate-y-1 transition-all"
               >
                 <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-slate-900 text-xl font-bold text-white shadow-md dark:bg-slate-800 group-hover:bg-red-600 transition-colors">
-                  {m.name ? m.name.charAt(0) : "م"}
+                  {m.name
+                    ? m.name.replace(/^(Eng\.|Mr\.|Mrs\.|Ms\.|م\.|أ\.|د\.)\s*/i, "").trim().charAt(0).toUpperCase()
+                    : "م"}
                 </div>
                 <div className="mt-4 text-xs font-bold uppercase tracking-wider text-red-600 dark:text-red-400">
                   {m.role}
@@ -1267,7 +1563,7 @@ function Index() {
                   : "We are ready to execute your road and infrastructure projects with utmost speed, quality, and professionalism."}
               </p>
               <div className="space-y-3 text-sm">
-                <a
+                {/* <a
                   href={CONTACT_INFO.domainUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -1275,10 +1571,10 @@ function Index() {
                 >
                   <ExternalLink className="size-4" />
                   <span>{CONTACT_INFO.domain}</span>
-                </a>
+                </a> */}
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-red-400 font-bold hover:underline"
                 >
                   <Mail className="size-4 text-red-500" />
                   <span>{CONTACT_INFO.email}</span>

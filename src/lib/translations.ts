@@ -1,6 +1,5 @@
 import logo from "@/assets/pdf/logo.png";
 import luxuryHighwayHero from "@/assets/pdf/luxury-highway-hero.jpg";
-import siteAerial from "@/assets/pdf/site-aerial.jpg";
 import rollerPaving from "@/assets/pdf/roller-paving.jpg";
 import works1 from "@/assets/pdf/works-1.jpg";
 import strengthening from "@/assets/pdf/strengthening.jpg";
@@ -12,17 +11,14 @@ import desertRoad from "@/assets/pdf/desert-road.jpg";
 import asphaltPavingCrew from "@/assets/pdf/asphalt-paving-crew.png";
 import waterproofingInsulation from "@/assets/pdf/waterproofing-insulation.png";
 
-import highwayCover from "@/assets/pdf/highway-cover.jpg";
 import heroLight from "@/assets/pdf/hero-light.png";
 import heroDark from "@/assets/pdf/hero-dark.png";
 
 export const IMAGES = {
   logo,
   luxuryHighwayHero,
-  highwayCover,
   heroLight,
   heroDark,
-  siteAerial,
   rollerPaving,
   works1,
   strengthening,
@@ -47,6 +43,14 @@ export const CONTACT_INFO = {
 };
 
 export const GALLERY_ITEMS_AR = [
+  {
+    id: 0,
+    src: "/roads/road-video-01.mp4",
+    type: "video" as const,
+    title: "فيديو ميداني: عمليات فرد ودك الأسفلت بالموقع",
+    desc: "فيديو حصري من الموقع يوثق مراحل فرد الخلطة الأسفلتية ودكها بالهراسة الإنعكاسية.",
+    category: "فيديو ميداني",
+  },
   {
     id: 1,
     src: asphaltPavingCrew,
@@ -117,9 +121,192 @@ export const GALLERY_ITEMS_AR = [
     desc: "فرق العمل الميدانية أثناء تنفيذ أعمال التجهيز والفرش بالموقع.",
     category: "طرق وأسفلت",
   },
+  {
+    id: 11,
+    src: "/roads/road-01.jpg",
+    title: "فرش ودك الخلطة الأسفلتية بفرادة DYNAPAC",
+    desc: "فرد الخلطة الأسفلتية بالموقع بواسطة أحدث فرادات الرصف الهيدروليكية DYNAPAC.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 12,
+    src: "/roads/road-02.jpg",
+    title: "دك وتسوية الأسفلت بالهراسة الإنعكاسية",
+    desc: "أعمال دك وتسوية الرصف الأسفلتي بالهراسات الإنعكاسية المتقدمة لضمان الجودة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 13,
+    src: "/roads/road-03.jpg",
+    title: "تنفيذ ورصف طرق المشاريع البحرية والساحلية",
+    desc: "أعمال التمهيد والفرش للطرق المحاذية للشواطئ والمنتجعات الساحلية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 14,
+    src: "/roads/road-04.jpg",
+    title: "تجهيز وتسوية تربة الأساس والطبقة الرابطة",
+    desc: "دمك وتسوية تربة الأساس المساعد بالمستويات والمناسيب المعتمدة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 15,
+    src: "/roads/road-05.jpg",
+    title: "رصف شوارع المجمعات السياحية والقرى",
+    desc: "تنفيذ الطرق الداخلية المسفلتة بمنتجعات البحر الأحمر بأعلى معايير الجودة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 16,
+    src: "/roads/road-06.jpg",
+    title: "دك الأسفلت بالمعدات الثقيلة بالموقع",
+    desc: "استخدام الهراسات الثقيلة لتحقيق أقصى درجات التضام للكثافة الأسفلتية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 17,
+    src: "/roads/road-07.jpg",
+    title: "أعمال التمهيد النهائي والطبقة السطحية",
+    desc: "إنهاء ودك الطبقة الأسفلتية السطحية للمشروع بدقة عالية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 18,
+    src: "/roads/road-08.jpg",
+    title: "تسوية القطوع والميول الميدانية للطرق",
+    desc: "تجهيز المسارات والميول الهندسية بالمعدات الميدانية الحديثة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 19,
+    src: "/roads/road-09.jpg",
+    title: "رصف الطرق والساحات الخارجية بالفنادق",
+    desc: "تنفيذ أعمال الرصف المتكاملة للمشروعات الفندقية في الغردقة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 20,
+    src: "/roads/road-10.jpg",
+    title: "عمليات دك الأسفلت بالهراسات الإنعكاسية",
+    desc: "التأكد من التوزيع الحراري والتضام الكامل لسطح الأسفلت المكسو.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 21,
+    src: "/roads/road-11.jpg",
+    title: "رش المستحلب البيتوميني اللاصق (Prime Coat)",
+    desc: "رش وتغطية طبقة MCO البيتومينية على تربة الأساس قبل الرصف.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 22,
+    src: "/roads/road-12.jpg",
+    title: "تطبيق الطبقة البيتومينية المعتمدة بالموقع",
+    desc: "تجهيز الموقع برش الرابط البيتوميني لضمان التماسك بين الطبقات.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 23,
+    src: "/roads/road-13.jpg",
+    title: "رصف الطرق والمناطق الحضرية بالغردقة",
+    desc: "أعمال التطوير والرصف الشاملة للطرق والمحاور الرئيسية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 24,
+    src: "/roads/road-14.jpg",
+    title: "تجهيز مسارات الطرق المزدوجة",
+    desc: "تسوية الحارات المرورية وتجهيز طبقة الأساس بالمشروع.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 25,
+    src: "/roads/road-15.jpg",
+    title: "دك وتقوية حواف وطبقات الطريق",
+    desc: "المحافظة على ثبات الحواف والاستقامة الهندسية للمسار.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 26,
+    src: "/roads/road-16.jpg",
+    title: "تسوية وتجهيز التربة بالمشروعات",
+    desc: "أعمال الجريدر والتسوية الهيدروليكية للتربة قبل وضع الأساس.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 27,
+    src: "/roads/road-17.jpg",
+    title: "ماكينة تخطيط الطرق الثرموبلاستيك HOFMANN",
+    desc: "تطبيق الدهانات الحرارية والتخطيط المساري للمرور بدقة عليا.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 28,
+    src: "/roads/road-18.jpg",
+    title: "شوارع منتجع VITA RESORT المسفلتة",
+    desc: "شبكة الطرق الداخلية المسفلتة بالكامل مع أعمدة الإنارة المودرن.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 29,
+    src: "/roads/road-19.jpg",
+    title: "دك وترميم الطبقات الأسفلتية بالموقع",
+    desc: "متابعة عمليات التضام والكثافة بواسطة الهراسات الاهتزازية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 30,
+    src: "/roads/road-20.jpg",
+    title: "تمهيد الطرق الصحراوية والمحاور",
+    desc: "فتح وتمهيد المحاور الرئيسية عبر البيئات الجبلية والصحراوية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 31,
+    src: "/roads/road-21.jpg",
+    title: "فرش الأسفلت بالمساحات المفتوحة",
+    desc: "تشغيل فرادات الرصف على النطاقات الواسعة لضمان استوائية السطح.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 32,
+    src: "/roads/road-22.jpg",
+    title: "دك وتنعيم الطبقة الأسفلتية السطحية",
+    desc: "استكمال مراحل الدك النهائية لتحقيق أعلى مستويات الفلاتة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 33,
+    src: "/roads/road-23.jpg",
+    title: "فحص درجة حرارة الأسفلت الميداني",
+    desc: "مقياس حراري ألماني الدقة لقراءة حرارة الخلطة (~130°C) للجودة.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 34,
+    src: "/roads/road-24.jpg",
+    title: "رصف مداخل ومخارج المشروعات",
+    desc: "أعمال الرصف الميداني لمداخل القرى والمراكز السياحية.",
+    category: "طرق وأسفلت",
+  },
+  {
+    id: 35,
+    src: "/roads/road-25.jpg",
+    title: "الفحص الميداني والتسليم الابتدائي للطرق",
+    desc: "التأكد من مطابقة جميع المواصفات الفنية قبل الاستلام النهائي.",
+    category: "طرق وأسفلت",
+  },
 ];
 
 export const GALLERY_ITEMS_EN = [
+  {
+    id: 0,
+    src: "/roads/road-video-01.mp4",
+    type: "video" as const,
+    title: "Field Video: Asphalt Spreading & Compaction Operations",
+    desc: "Exclusive field video documenting hot-mix asphalt paving and reflective roller compaction on site.",
+    category: "Field Video",
+  },
   {
     id: 1,
     src: asphaltPavingCrew,
@@ -190,6 +377,314 @@ export const GALLERY_ITEMS_EN = [
     desc: "Field operational teams executing site leveling and base preparation.",
     category: "Roads & Asphalt",
   },
+  {
+    id: 11,
+    src: "/roads/road-01.jpg",
+    title: "DYNAPAC Asphalt Paver Operation",
+    desc: "Spreading hot asphalt mix using high-spec DYNAPAC hydraulic pavers.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 12,
+    src: "/roads/road-02.jpg",
+    title: "Asphalt Compaction Roller Operation",
+    desc: "Precision asphalt rolling for optimal surface density and smoothness.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 13,
+    src: "/roads/road-03.jpg",
+    title: "Coastal Project Road Paving",
+    desc: "Subgrade prep and asphalt laying along beachfront resorts.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 14,
+    src: "/roads/road-04.jpg",
+    title: "Subgrade & Base Course Preparation",
+    desc: "Compacting and grading aggregate base layers to approved specs.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 15,
+    src: "/roads/road-05.jpg",
+    title: "Resort Internal Street Network Paving",
+    desc: "Paving internal resort access roads across Red Sea destinations.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 16,
+    src: "/roads/road-06.jpg",
+    title: "Heavy Equipment Asphalt Compaction",
+    desc: "Using heavy vibratory rollers to achieve maximum structural density.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 17,
+    src: "/roads/road-07.jpg",
+    title: "Final Wearing Course Paving",
+    desc: "High-precision surface course laying and finishing.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 18,
+    src: "/roads/road-08.jpg",
+    title: "Road Slope Grading & Site Prep",
+    desc: "Heavy grader operations shaping road embankments.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 19,
+    src: "/roads/road-09.jpg",
+    title: "Hotel Grounds Asphalt Paving",
+    desc: "Comprehensive paving operations for luxury hotel complexes.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 20,
+    src: "/roads/road-10.jpg",
+    title: "Reflective Roller Asphalt Finishing",
+    desc: "Monitoring thermal window and compaction density across pavement.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 21,
+    src: "/roads/road-11.jpg",
+    title: "Bituminous Prime Coat (MCO) Application",
+    desc: "Uniform spraying of prime coat emulsion over aggregate base layer.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 22,
+    src: "/roads/road-12.jpg",
+    title: "Bitumen Spraying & Bond Coat Prep",
+    desc: "Applying liquid bitumen to guarantee inter-layer adhesion.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 23,
+    src: "/roads/road-13.jpg",
+    title: "Hurghada City Road Construction",
+    desc: "Urban street paving and infrastructure upgrades in Hurghada.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 24,
+    src: "/roads/road-14.jpg",
+    title: "Dual Carriageway Bed Prep",
+    desc: "Grading and subgrade compaction for multi-lane roadways.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 25,
+    src: "/roads/road-15.jpg",
+    title: "Road Edge & Shoulder Compaction",
+    desc: "Ensuring structural integrity and alignment along pavement edges.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 26,
+    src: "/roads/road-16.jpg",
+    title: "Hydraulic Soil Grading Operations",
+    desc: "Levelling and grading raw soil before base course application.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 27,
+    src: "/roads/road-17.jpg",
+    title: "German HOFMANN Thermoplastic Road Marker",
+    desc: "Applying high-durability reflective lane striping on hot asphalt.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 28,
+    src: "/roads/road-18.jpg",
+    title: "VITA RESORT Paved Street Network",
+    desc: "Completed asphalt roads fitted with modern street illumination.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 29,
+    src: "/roads/road-19.jpg",
+    title: "On-Site Asphalt Density Compaction",
+    desc: "Vibratory roller compaction ensuring zero void ratio.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 30,
+    src: "/roads/road-20.jpg",
+    title: "Desert Highway Route Alignment",
+    desc: "Opening and grading major routes through desert mountain terrain.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 31,
+    src: "/roads/road-21.jpg",
+    title: "Large Scale Asphalt Laying",
+    desc: "High-output paving machinery operating on wide road sections.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 32,
+    src: "/roads/road-22.jpg",
+    title: "Surface Finish & Smoothness Roller",
+    desc: "Final passes with smooth drum rollers for optimum ride quality.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 33,
+    src: "/roads/road-23.jpg",
+    title: "Quality Asphalt Thermal Probe Inspection",
+    desc: "German precision probe checking hot mix temperature (~130°C).",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 34,
+    src: "/roads/road-24.jpg",
+    title: "Resort Entrance & Corridor Paving",
+    desc: "Field asphalt paving at resort entryways and access lanes.",
+    category: "Roads & Asphalt",
+  },
+  {
+    id: 35,
+    src: "/roads/road-25.jpg",
+    title: "Project Inspection & Pre-Handover Quality Audit",
+    desc: "Final quality assurance check before project client handover.",
+    category: "Roads & Asphalt",
+  },
+];
+
+export interface RoadMediaItem {
+  id: number;
+  src: string;
+  type: "image" | "video";
+  title: string;
+  desc: string;
+  category: string;
+  categorySlug: "all" | "paving" | "machinery" | "base" | "video";
+}
+
+export const ROAD_STATIC_ITEMS_AR: RoadMediaItem[] = [
+  // {
+  //   id: 101,
+  //   src: "/roads/road-video-01.mp4",
+  //   type: "video",
+  //   title: "فيديو ميداني: عمليات فرد ودك الأسفلت بالموقع",
+  //   desc: "تغطية مرئية حية لعمليات فرد الخلطة الأسفلتية والدك بالهراسات الثقيلة في موقع التنفيذ.",
+  //   category: "فيديو ميداني",
+  //   categorySlug: "video",
+  // },
+  {
+    id: 102,
+    src: "/roads/road-01.jpg",
+    type: "image",
+    title: "أحدث معدات الرصف - فرد الأسفلت بفرادة DYNAPAC",
+    desc: "فرش الخلطة الأسفلتية بالموقع بواسطة أحدث فرادات الرصف الهيدروليكية DYNAPAC لضمان أقصى مستويات الجودة.",
+    category: "أعمال الأسفلت والرصف",
+    categorySlug: "paving",
+  },
+  {
+    id: 104,
+    src: "/roads/road-02.jpg",
+    type: "image",
+    title: "أحدث معدات الرصف والدك الإنعكاسي لضمان الجودة",
+    desc: "أعمال دك وتسوية الرصف الأسفلتي بالهراسات الإنعكاسية المتقدمة لتحقيق أعلى مستويات التضام والجودة الهندسي.",
+    category: "الأسطول والمعدات",
+    categorySlug: "machinery",
+  },
+  {
+    id: 112,
+    src: "/roads/road-11.jpg",
+    type: "image",
+    title: "رش وتجهيز طبقة MCO البيتومينية اللاصقة",
+    desc: "تطبيق مستحلب البيتومين السائل (MCO / Prime Coat) على تربة الأساس قبل البدء في فرش الأسفلت.",
+    category: "التجهيز والدك",
+    categorySlug: "base",
+  },
+  {
+    id: 118,
+    src: "/roads/road-17.jpg",
+    type: "image",
+    title: "ماكينة تخطيط الطرق المتخصصة HOFMANN الألمانية",
+    desc: "معدة التخطيط الحراري (Thermoplastic) المتخصصة لرسم خطوط المرور المسارية بدقة متناهية.",
+    category: "الأسطول والمعدات",
+    categorySlug: "machinery",
+  },
+  {
+    id: 124,
+    src: "/roads/road-23.jpg",
+    type: "image",
+    title: "ترمومتر الفحص الحراري الميداني للأسفلت الساخن (Made in Germany)",
+    desc: "مقياس حرارة ثنائي المعدن عالي الدقة يقرأ درجة حرارة الخلطة الأسفلتية (~130°C) لضمان كفاءة الدك والالتصاق.",
+    category: "أعمال الأسفلت والرصف",
+    categorySlug: "paving",
+  },
+  {
+    id: 119,
+    src: "/roads/road-18.jpg",
+    type: "image",
+    title: "إنارة وتجهيز شوارع منتجع VITA RESORT",
+    desc: "شبكة الطرق الداخلية المسفلتة بالكامل مع تركيب أعمدة الإنارة الديكورية الحديثة واللاندسكيب.",
+    category: "أعمال الأسفلت والرصف",
+    categorySlug: "paving",
+  },
+];
+
+export const ROAD_STATIC_ITEMS_EN: RoadMediaItem[] = [
+  {
+    id: 102,
+    src: "/roads/road-01.jpg",
+    type: "image",
+    title: "Latest Paving Equipment - DYNAPAC Asphalt Paver Operation",
+    desc: "Spreading hot asphalt mix on site using high-spec DYNAPAC hydraulic pavers for peak quality.",
+    category: "Asphalt & Paving",
+    categorySlug: "paving",
+  },
+  {
+    id: 104,
+    src: "/roads/road-02.jpg",
+    type: "image",
+    title: "State-of-the-Art Paving & Reflective Compaction Equipment for Quality Assurance",
+    desc: "High-precision asphalt compaction roller ensuring maximum surface density, smoothness, and quality assurance.",
+    category: "Heavy Machinery",
+    categorySlug: "machinery",
+  },
+  {
+    id: 112,
+    src: "/roads/road-11.jpg",
+    type: "image",
+    title: "Bituminous Prime Coat (MCO) Emulsion Application",
+    desc: "Uniform spraying of liquid bitumen prime coat over aggregate base course prior to asphalt laying.",
+    category: "Base Prep & Compaction",
+    categorySlug: "base",
+  },
+  {
+    id: 118,
+    src: "/roads/road-17.jpg",
+    type: "image",
+    title: "German HOFMANN Thermoplastic Road Striping Truck",
+    desc: "Specialized HOFMANN road marking equipment for applying high-durability thermoplastic line striping.",
+    category: "Heavy Machinery",
+    categorySlug: "machinery",
+  },
+  {
+    id: 124,
+    src: "/roads/road-23.jpg",
+    type: "image",
+    title: "Quality Assurance Field Asphalt Temperature Check (Made in Germany)",
+    desc: "German precision bimetallic probe thermometer inspecting hot mix thermal window (~130°C) for optimal compaction.",
+    category: "Asphalt & Paving",
+    categorySlug: "paving",
+  },
+  {
+    id: 119,
+    src: "/roads/road-18.jpg",
+    type: "image",
+    title: "VITA RESORT Street Paving & Decorative Lighting",
+    desc: "Fully paved resort streets finished with modern decorative light poles and green landscaping.",
+    category: "Asphalt & Paving",
+    categorySlug: "paving",
+  },
 ];
 
 export const CONTENT = {
@@ -198,9 +693,20 @@ export const CONTENT = {
       { label: "عن الشركة", href: "#profile" },
       { label: "الخدمات", href: "#classification" },
       { label: "المشروعات", href: "#projects" },
-      { label: "معرض الصور", href: "#gallery" },
+      { label: "معرض الطرق", href: "#road-static-gallery" },
+      { label: "معرض الصور المتحرك", href: "#gallery" },
       { label: "اتصل بنا", href: "#contact" },
     ],
+    roadStatic: {
+      kicker: "المعرض الميداني الثابت",
+      title: "معرض مشروعات وأعمال الطرق الميدانية",
+      subtitle: "استعراض حصري وشامل لأحدث أعمال الرصف والأسفلت، وتجهيز الطرق ومعداتنا بالمواقع الميدانية بمحافظة البحر الأحمر",
+      filterAll: "الكل",
+      filterPaving: "أعمال الأسفلت والرصف",
+      filterMachinery: "الأسطول والمعدات",
+      filterBase: "التجهيز والدك",
+      filterVideo: "فيديوهات الموقع",
+    },
     hero: {
       tag: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
       title: "الريادة والتميز في إنشاء وتطوير شبكات الطرق والبنية التحتية",
@@ -218,6 +724,8 @@ export const CONTENT = {
     profile: {
       kicker: "الملف التعريفي",
       title: "بيانات شركة البحر الأحمر للطرق",
+      showcaseTag: "مواقع التنفيذ الميداني",
+      showcaseTitle: "أحدث معدات الرصف والدك الإنعكاسي لضمان الجودة",
       items: [
         { label: "سنة التأسيس", value: "2022م" },
         { label: "المقر الرئيسي", value: "10 شارع الوحدة، المنشية، الغردقة، محافظة البحر الأحمر" },
@@ -281,6 +789,8 @@ export const CONTENT = {
     classification: {
       kicker: "تصنيف الشركة والخدمات",
       title: "شركة مقاولات متوسطة الفئة ومتخصصة",
+      scopeLabel: "نطاق العمل: محافظة البحر الأحمر",
+      scopeCities: "الغردقة – رأس غارب – سفاجا – مرسى علم – الجونة – سهل حشيش",
       servicesTitle: "الخدمات الرئيسية والمجالات",
       services: [
         {
@@ -497,6 +1007,7 @@ export const CONTENT = {
         { role: "رئيس مجلس الإدارة", name: "م. ممدوح السيد" },
         { role: "الرئيس التنفيذي | CEO", name: "م. إيهاب المحمدي" },
         { role: "المدير المالي | CFO", name: "أ. أحمد سنوسي" },
+        { role: "مدير المكتب الفني", name: "م. منال الرشيدى" },
       ],
       stats: [
         { label: "عدد المهندسين المتخصصين", value: "+50 مهندس" },
@@ -518,9 +1029,20 @@ export const CONTENT = {
       { label: "About Us", href: "#profile" },
       { label: "Services", href: "#classification" },
       { label: "Projects", href: "#projects" },
-      { label: "Gallery", href: "#gallery" },
+      { label: "Road Operations", href: "#road-static-gallery" },
+      { label: "Slider Gallery", href: "#gallery" },
       { label: "Contact Us", href: "#contact" },
     ],
+    roadStatic: {
+      kicker: "Static Field Gallery",
+      title: "Field Road Operations Showcase",
+      subtitle: "Exclusive static exhibition of hot asphalt paving, roadbed preparation, and heavy machinery active in the field",
+      filterAll: "All",
+      filterPaving: "Asphalt & Paving",
+      filterMachinery: "Heavy Machinery",
+      filterBase: "Base Prep & Compaction",
+      filterVideo: "Field Videos",
+    },
     hero: {
       tag: "Red Sea for Roads & General Contracting Company",
       title: "Excellence & Leadership in Road Construction & Infrastructure",
@@ -538,6 +1060,8 @@ export const CONTENT = {
     profile: {
       kicker: "Company Profile",
       title: "Company Corporate Data",
+      showcaseTag: "Field Operational Sites",
+      showcaseTitle: "State-of-the-Art Paving & Reflective Compaction Equipment for Quality Assurance",
       items: [
         { label: "Year of Establishment", value: "2022" },
         {
@@ -604,6 +1128,8 @@ export const CONTENT = {
     classification: {
       kicker: "Classification & Services",
       title: "Medium-Sized Specialized Contracting Company",
+      scopeLabel: "Operational Scope: Red Sea Governorate",
+      scopeCities: "Hurghada – Ras Ghareb – Safaga – Marsa Alam – El Gouna – Sahl Hasheesh",
       servicesTitle: "Core Services & Capabilities",
       services: [
         {
@@ -816,6 +1342,7 @@ export const CONTENT = {
         { role: "Chairman of the Board", name: "Eng. Mamdouh El-Sayed" },
         { role: "Chief Executive Officer | CEO", name: "Eng. Ehab El-Mohamady" },
         { role: "Chief Financial Officer | CFO", name: "Mr. Ahmed Sanousi" },
+        { role: "Technical Office Manager", name: "Eng. Manal Elrashedy" },
       ],
       stats: [
         { label: "Specialized Engineers", value: "50+ Engineers" },
