@@ -79,7 +79,7 @@ export async function sendContactEmail(
     }
 
     throw new Error(`EmailJS responded with status: ${response.status}`);
-  } catch (error: any) {
+  } catch (error) {
     console.error("EmailJS SDK error, attempting direct API fallback...", error);
 
     // Direct API fallback
@@ -107,10 +107,13 @@ export async function sendContactEmail(
         success: false,
         message: errorText || "Failed to send email via EmailJS API.",
       };
-    } catch (fallbackError: any) {
+    } catch (fallbackError) {
       return {
         success: false,
-        message: fallbackError?.message || "Network error while sending email.",
+        message:
+          fallbackError instanceof Error
+            ? fallbackError.message
+            : "Network error while sending email.",
       };
     }
   }

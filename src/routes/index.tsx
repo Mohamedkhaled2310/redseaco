@@ -54,6 +54,7 @@ function Index() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [projectCategory, setProjectCategory] = useState<string>("all");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [activeImage, setActiveImage] = useState<any>(null);
 
   // Gallery Carousel Slider State
@@ -164,6 +165,7 @@ function Index() {
   }, [projectCategory, t]);
 
   // Lightbox handlers
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const openLightbox = (item: any) => setActiveImage(item);
   const closeLightbox = () => setActiveImage(null);
 
@@ -1250,6 +1252,8 @@ function Index() {
                 alt="Red Sea For Roads Company Logo"
                 width={1584}
                 height={672}
+                loading="lazy"
+                decoding="async"
                 className="h-14 w-auto rounded-xl bg-white p-3 shadow-md"
               />
               <p className="text-sm leading-relaxed text-slate-400 max-w-md">
