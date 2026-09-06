@@ -1004,10 +1004,10 @@ export const CONTENT = {
       kicker: "الهيكل التنظيمي",
       title: "القيادة والكوادر البشرية",
       members: [
-        { role: "رئيس مجلس الإدارة", name: "م. ممدوح السيد" },
-        { role: "الرئيس التنفيذي | CEO", name: "م. إيهاب المحمدي" },
-        { role: "المدير المالي | CFO", name: "أ. أحمد سنوسي" },
-        { role: "مدير المكتب الفني", name: "م. منال الرشيدى" },
+        { role: "رئيس مجلس الإدارة", name: "م. ممدوح السيد", email: "mamdouh-elsayed@redsearoadseg.com" },
+        { role: "الرئيس التنفيذي | CEO", name: "م. إيهاب المحمدي", email: "ehab-elmohamdy@redsearoadseg.com" },
+        { role: "المدير المالي | CFO", name: "أ. أحمد سنوسي", email: "ahmed-senosy@redsearoadseg.com" },
+        { role: "مدير المكتب الفني", name: "م. منال الرشيدى", email: "manal-elrashedy@redsearoadseg.com" },
       ],
       stats: [
         { label: "عدد المهندسين المتخصصين", value: "+50 مهندس" },
@@ -1339,10 +1339,10 @@ export const CONTENT = {
       kicker: "Organizational Structure",
       title: "Executive Management & Engineering Staff",
       members: [
-        { role: "Chairman of the Board", name: "Eng. Mamdouh El-Sayed" },
-        { role: "Chief Executive Officer | CEO", name: "Eng. Ehab El-Mohamady" },
-        { role: "Chief Financial Officer | CFO", name: "Mr. Ahmed Sanousi" },
-        { role: "Technical Office Manager", name: "Eng. Manal Elrashedy" },
+        { role: "Chairman of the Board", name: "Eng. Mamdouh El-Sayed", email: "mamdouh-elsayed@redsearoadseg.com" },
+        { role: "Chief Executive Officer | CEO", name: "Eng. Ehab El-Mohamady", email: "ehab-elmohamdy@redsearoadseg.com" },
+        { role: "Chief Financial Officer | CFO", name: "Mr. Ahmed Sanousi", email: "ahmed-senosy@redsearoadseg.com" },
+        { role: "Technical Office Manager", name: "Eng. Manal Elrashedy", email: "manal-elrashedy@redsearoadseg.com" },
       ],
       stats: [
         { label: "Specialized Engineers", value: "50+ Engineers" },

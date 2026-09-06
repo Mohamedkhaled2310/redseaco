@@ -1339,6 +1339,15 @@ function Index() {
                 <div className="mt-1 text-lg font-bold text-slate-900 dark:text-white">
                   {m.name}
                 </div>
+                {m.email && (
+                  <a
+                    href={`mailto:${m.email}`}
+                    className="mt-2 inline-block text-xs text-red-600 dark:text-red-400 hover:underline break-all"
+                    title={`Send email to ${m.name}`}
+                  >
+                    {m.email}
+                  </a>
+                )}
               </div>
             ))}
           </div>
