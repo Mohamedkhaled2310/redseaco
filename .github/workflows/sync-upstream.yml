@@ -1,0 +1,44 @@
+﻿name: Sync from Upstream
+
+on:
+  schedule:
+    # Runs every hour at :00 minutes
+    - cron: "0 * * * *"
+  workflow_dispatch: # Allow manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Merge upstream -> fork
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork (main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/engmahmoudwalied/redseaco.git
+
+      - name: Fetch upstream
+        run: git fetch upstream main --no-tags
+
+      - name: Merge upstream/main into fork/main
+        run: |
+          git merge upstream/main \
+            --allow-unrelated-histories \
+            --no-edit \
+            -m "chore: sync from upstream [automated]"
+
+      - name: Push merged result to fork
+        run: git push origin main
