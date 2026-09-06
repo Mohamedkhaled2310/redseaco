@@ -12,9 +12,16 @@ import desertRoad from "@/assets/pdf/desert-road.jpg";
 import asphaltPavingCrew from "@/assets/pdf/asphalt-paving-crew.png";
 import waterproofingInsulation from "@/assets/pdf/waterproofing-insulation.png";
 
+import highwayCover from "@/assets/pdf/highway-cover.jpg";
+import heroLight from "@/assets/pdf/hero-light.png";
+import heroDark from "@/assets/pdf/hero-dark.png";
+
 export const IMAGES = {
   logo,
   luxuryHighwayHero,
+  highwayCover,
+  heroLight,
+  heroDark,
   siteAerial,
   rollerPaving,
   works1,

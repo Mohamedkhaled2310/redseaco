@@ -352,36 +352,41 @@ function Index() {
       {/* HERO SECTION */}
       <section
         id="top"
-        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 text-white"
+        className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-900 dark:bg-slate-950 text-white transition-colors duration-500"
       >
-        {/* Background Image with Gradient Overlay */}
+        {/* Background Image with Gradient Overlay (Light vs Dark Mode) */}
         <div className="absolute inset-0 z-0">
           <img
-            src={IMAGES.luxuryHighwayHero}
-            alt="Luxury Paved Highway Red Sea Coast"
-            width={2338}
-            height={1653}
-            className="h-full w-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
+            src={theme === "dark" ? IMAGES.heroDark : IMAGES.heroLight}
+            alt="Red Sea Paved Highway Infrastructure"
+            width={1024}
+            height={1024}
+            className="h-full w-full object-cover object-center scale-105 transition-all duration-1000 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060c1a] via-[#09152a]/75 to-[#0f2347]/50" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-950/40 to-slate-950/90" />
+          {/* Light Mode Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-slate-900/30 dark:hidden" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-950/30 to-slate-950/80 dark:hidden" />
+
+          {/* Dark Mode Overlay */}
+          <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[#060c1a] via-[#09152a]/80 to-[#0f2347]/50" />
+          <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-slate-950/50 to-slate-950/95" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-8 text-center">
           {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-950/60 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-red-300 shadow-glow mb-6 rise">
+          <div className="inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-slate-900/80 dark:bg-red-950/60 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-red-300 shadow-glow mb-6 rise">
             <Sparkles className="size-3.5 text-red-400" />
             <span>{t.hero.tag}</span>
           </div>
 
           {/* Main Title */}
-          <h1 className="mx-auto max-w-5xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight sm:leading-none rise">
+          <h1 className="mx-auto max-w-5xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight sm:leading-none rise drop-shadow-md">
             {t.hero.title}
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-lg md:text-xl font-normal rise">
+          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-slate-200 dark:text-slate-300 sm:text-lg md:text-xl font-normal rise drop-shadow">
             {t.hero.subtitle}
           </p>
 
@@ -399,7 +404,7 @@ function Index() {
 
             <a
               href="#projects"
-              className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-white/20 hover:border-white/40 hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2.5 rounded-xl border border-white/30 bg-white/15 backdrop-blur-md px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:bg-white/25 hover:border-white/50 hover:scale-105 active:scale-95"
             >
               <span>{t.hero.ctaSecondary}</span>
               {lang === "ar" ? <ArrowLeft className="size-4" /> : <ArrowRight className="size-4" />}
@@ -407,7 +412,7 @@ function Index() {
 
             <a
               href={`tel:+${CONTACT_INFO.phoneRaw}`}
-              className="inline-flex items-center gap-2.5 rounded-xl border border-red-500/50 bg-red-600/20 backdrop-blur-md px-7 py-3.5 text-sm font-bold text-red-300 transition-all hover:bg-red-600 hover:text-white"
+              className="inline-flex items-center gap-2.5 rounded-xl border border-red-500/50 bg-red-600/30 backdrop-blur-md px-7 py-3.5 text-sm font-bold text-red-200 transition-all hover:bg-red-600 hover:text-white"
             >
               <Phone className="size-4" />
               <span dir="ltr">{CONTACT_INFO.phoneDisplay}</span>
@@ -419,12 +424,12 @@ function Index() {
             {t.hero.stats.map((s, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-800/80 bg-slate-900/70 p-4 sm:p-6 backdrop-blur-md shadow-card text-center"
+                className="rounded-2xl border border-white/25 bg-slate-900/80 dark:border-slate-800/80 dark:bg-slate-900/70 p-4 sm:p-6 backdrop-blur-md shadow-card text-center"
               >
                 <div className="text-2xl sm:text-4xl font-extrabold text-red-500 tracking-tight">
                   {s.value}
                 </div>
-                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-300">
+                <div className="mt-1 text-xs sm:text-sm font-semibold text-slate-200 dark:text-slate-300">
                   {s.label}
                 </div>
               </div>
