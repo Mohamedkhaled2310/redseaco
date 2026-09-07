@@ -73,22 +73,69 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 const SITE_URL = "https://www.redsearoadseg.com";
-const SITE_TITLE = "شركة البحر الأحمر للمقاولات العامة ورصف الطرق | Red Sea for Roads";
-const SITE_DESC =
-  "شركة البحر الأحمر للمقاولات العامة ورصف الطرق بالغردقة والمحافظة. خبرة تتجاوز 20 عاماً في أعمال الأسفلت، الطرق، العزل، التجفيف والتوريدات بالمحافظة. Red Sea for Roads & General Contracting Company.";
+const SITE_TITLE_AR = "شركة البحر الأحمر للمقاولات العامة ورصف الطرق";
+const SITE_DESC_AR =
+  "شركة البحر الأحمر للمقاولات العامة ورصف الطرق بالغردقة ومحافظة البحر الأحمر. خبرة تتجاوز 20 عاماً في أعمال الأسفلت، الطرق، العزل، التجفيف والتوريدات العامة.";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
-const LOGO_URL = `${SITE_URL}/logo.png`;
+const LOGO_URL = `${SITE_URL}/favicon-512x512.png`;
 
 const structuredData = [
   {
     "@context": "https://schema.org",
-    "@type": ["GeneralContractor", "LocalBusiness"],
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
-    alternateName: ["Red Sea for Roads Company", "شركة البحر الأحمر للطرق", "Red Sea Roads"],
+    alternateName: [
+      "Red Sea for Roads & General Contracting Company",
+      "شركة البحر الأحمر للطرق",
+      "Red Sea Roads",
+      "Red Sea for Roads Company",
+    ],
+    url: SITE_URL,
+    logo: {
+      "@type": "ImageObject",
+      url: LOGO_URL,
+      width: 512,
+      height: 512,
+      caption: "شعار شركة البحر الأحمر للمقاولات ورصف الطرق",
+    },
+    image: OG_IMAGE,
+    description: SITE_DESC_AR,
+    telephone: "+201000597912",
+    email: "Info@redsearoadseg.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "10 شارع الوحدة، المنشية",
+      addressLocality: "الغردقة",
+      addressRegion: "محافظة البحر الأحمر",
+      addressCountry: "EG",
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: "+201000597912",
+        contactType: "customer service",
+        areaServed: "EG",
+        availableLanguage: ["Arabic", "English"],
+      },
+    ],
+    sameAs: [
+      "https://www.facebook.com",
+      "https://www.instagram.com",
+      "https://www.linkedin.com",
+      "https://www.youtube.com",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": ["GeneralContractor", "LocalBusiness"],
+    "@id": `${SITE_URL}/#localbusiness`,
+    name: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
+    alternateName: "Red Sea for Roads Company",
     url: SITE_URL,
     logo: LOGO_URL,
     image: OG_IMAGE,
-    description: SITE_DESC,
+    description: SITE_DESC_AR,
     telephone: "+201000597912",
     email: "Info@redsearoadseg.com",
     address: {
@@ -125,12 +172,6 @@ const structuredData = [
     ],
     priceRange: "$$$",
     openingHours: "Mo-Th 08:00-17:00, Sa-Su 08:00-17:00",
-    sameAs: [
-      "https://www.facebook.com",
-      "https://www.instagram.com",
-      "https://www.linkedin.com",
-      "https://www.youtube.com",
-    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "خدمات المقاولات العامة ورصف الطرق",
@@ -155,8 +196,8 @@ const structuredData = [
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "التوريدات العامة",
-            description: "توريد كافة مستلزمات ومواد البناء الأساسية للمقاولات.",
+            name: "التوريدات العامة ومواد البناء",
+            description: "توريد كافة مستلزمات ومواد البناء والسن والرمل الأساسية للمقاولات.",
           },
         },
       ],
@@ -165,19 +206,22 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "شركة البحر الأحمر للمقاولات",
+    "@id": `${SITE_URL}/#website`,
+    name: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
+    alternateName: "Red Sea for Roads",
     url: SITE_URL,
-    description: SITE_DESC,
+    description: SITE_DESC_AR,
+    inLanguage: ["ar", "en"],
   },
 ];
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    title: SITE_TITLE,
+    title: SITE_TITLE_AR,
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
-      { name: "description", content: SITE_DESC },
+      { name: "description", content: SITE_DESC_AR },
       {
         name: "keywords",
         content:
@@ -193,8 +237,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
       },
       { property: "og:site_name", content: "شركة البحر الأحمر للمقاولات ورصف الطرق" },
-      { property: "og:title", content: SITE_TITLE },
-      { property: "og:description", content: SITE_DESC },
+      { property: "og:title", content: SITE_TITLE_AR },
+      { property: "og:description", content: SITE_DESC_AR },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
@@ -203,19 +247,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "شركة البحر الأحمر للمقاولات ورصف الطرق" },
-      { itemProp: "name", content: SITE_TITLE },
-      { itemProp: "description", content: SITE_DESC },
+      { itemProp: "name", content: SITE_TITLE_AR },
+      { itemProp: "description", content: SITE_DESC_AR },
       { itemProp: "image", content: OG_IMAGE },
       { property: "og:locale", content: "ar_EG" },
       { property: "og:locale:alternate", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: SITE_TITLE },
-      { name: "twitter:description", content: SITE_DESC },
+      { name: "twitter:title", content: SITE_TITLE_AR },
+      { name: "twitter:description", content: SITE_DESC_AR },
       { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#0f2347" },
     ],
     links: [
       { rel: "canonical", href: SITE_URL },
+      // Hreflang tags for Google & Search Engines
+      { rel: "alternate", hrefLang: "ar", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "ar-EG", href: `${SITE_URL}/` },
+      { rel: "alternate", hrefLang: "en", href: `${SITE_URL}/?lang=en` },
+      { rel: "alternate", hrefLang: "x-default", href: `${SITE_URL}/` },
+      // Fallback attributes with lowercase hreflang as well
+      { rel: "alternate", hreflang: "ar", href: `${SITE_URL}/` },
+      { rel: "alternate", hreflang: "en", href: `${SITE_URL}/?lang=en` },
+      { rel: "alternate", hreflang: "x-default", href: `${SITE_URL}/` },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -223,11 +276,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap",
       },
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      // Google Favicon Guidelines compliant square icons (multiples of 48px)
       { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
       { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" },
       { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
       { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon-512x512.png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/site.webmanifest" },
     ],

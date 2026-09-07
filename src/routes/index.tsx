@@ -41,8 +41,8 @@ import { sendContactEmail } from "@/lib/emailjs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    title: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
     meta: [
-      { title: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق | Red Sea for Roads" },
       {
         name: "description",
         content:
@@ -77,13 +77,25 @@ function Index() {
   const [contactSent, setContactSent] = useState(false);
   const [contactSubmitting, setContactSubmitting] = useState(false);
 
-  // Detect device language & system dark mode on initial mount
+  // Detect query param / device language & system dark mode on initial mount
   useEffect(() => {
-    // Language detection
+    // 1. Check URL search param (e.g. ?lang=en or ?lang=ar)
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const paramLang = urlParams.get("lang");
+      if (paramLang === "ar" || paramLang === "en") {
+        setLang(paramLang);
+        localStorage.setItem("redsea_lang", paramLang);
+        return;
+      }
+    }
+
+    // 2. Check localStorage
     const savedLang = localStorage.getItem("redsea_lang");
     if (savedLang === "ar" || savedLang === "en") {
       setLang(savedLang);
     } else if (typeof navigator !== "undefined") {
+      // 3. Check browser language
       const userLang = (navigator.language || "").toLowerCase();
       if (userLang.startsWith("ar")) {
         setLang("ar");
@@ -104,11 +116,39 @@ function Index() {
     }
   }, []);
 
-  // Update HTML document attributes when language changes
+  // Update HTML document attributes, title, and SEO meta tags when language changes
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     localStorage.setItem("redsea_lang", lang);
+
+    const isArabic = lang === "ar";
+    const pageTitle = isArabic
+      ? "شركة البحر الأحمر للمقاولات العامة ورصف الطرق | مقاولات وأسفلت الغردقة"
+      : "Red Sea for Roads & General Contracting | Asphalt & Infrastructure Hurghada";
+
+    const pageDesc = isArabic
+      ? "شركة متخصصة في مقاولات ورصف الطرق، أعمال الأسفلت، العزل، التجفيف، التوريدات والترميم بمحافظة البحر الأحمر (الغردقة، رأس غارب، سفاجا، مرسى علم، الجونة)."
+      : "Specialized in road contracting, asphalt paving, waterproofing, dewatering, structural repair, and material supplies across Red Sea Governorate (Hurghada, Ras Ghareb, Safaga, Marsa Alam, El Gouna).";
+
+    // Set clean single-language document title (prevents bi-directional mixed text)
+    document.title = pageTitle;
+
+    // Update meta tags dynamically
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", pageDesc);
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute("content", pageTitle);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", pageDesc);
+
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute("content", pageTitle);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute("content", pageDesc);
   }, [lang]);
 
   // Update HTML dark class when theme changes
