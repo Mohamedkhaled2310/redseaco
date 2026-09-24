@@ -35,11 +35,14 @@ export const CONTACT_INFO = {
   phoneDisplay: "0100 059 7912",
   phoneRaw: "201000597912",
   whatsappUrl: "https://wa.me/201000597912",
+  googleMapsUrl: "https://maps.app.goo.gl/K8nTuKfXuivHPV5m6?g_st=ic",
+  googleReviewUrl: "https://g.page/r/CZUSW1tB-LZcECE/review",
+  facebookUrl: "https://www.facebook.com/redsea.roads/",
   email: "Info@redsearoadseg.com",
   domain: "www.redsearoadseg.com",
   domainUrl: "https://www.redsearoadseg.com",
-  locationAr: "10 شارع الوحدة، المنشية، الغردقة، محافظة البحر الأحمر، مصر",
-  locationEn: "10 Al-Wahda Street, Al-Manshya, Hurghada, Red Sea Governorate, Egypt",
+  locationAr: "10 شارع الوحدة، الدهار، الغردقة، محافظة البحر الأحمر، مصر",
+  locationEn: "10 Al-Wahda Street, El-Dahar, Hurghada, Red Sea Governorate, Egypt",
 };
 
 export const GALLERY_ITEMS_AR = [
@@ -698,7 +701,7 @@ export const CONTENT = {
       { label: "اتصل بنا", href: "#contact" },
     ],
     roadStatic: {
-      kicker: "المعرض الميداني الثابت",
+      kicker: "أعمالنا بالموقع",
       title: "معرض مشروعات وأعمال الطرق الميدانية",
       subtitle: "استعراض حصري وشامل لأحدث أعمال الرصف والأسفلت، وتجهيز الطرق ومعداتنا بالمواقع الميدانية بمحافظة البحر الأحمر",
       filterAll: "الكل",
@@ -708,7 +711,8 @@ export const CONTENT = {
       filterVideo: "فيديوهات الموقع",
     },
     hero: {
-      tag: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
+      h1: "شركة البحر الأحمر للطرق والمقاولات العامة",
+      tag: "شركة البحر الأحمر للطرق والمقاولات العامة | Red Sea for Roads",
       title: "الريادة والتميز في إنشاء وتطوير شبكات الطرق والبنية التحتية",
       subtitle:
         "خبرة هندسية تمتد لأكثر من 20 عاماً في تنفيذ أعمال الأسفلت، العزل، التجفيف، التوريدات، والتنفيذ الإنشائي عبر كافة مدن محافظة البحر الأحمر.",
@@ -728,7 +732,7 @@ export const CONTENT = {
       showcaseTitle: "أحدث معدات الرصف والدك الإنعكاسي لضمان الجودة",
       items: [
         { label: "سنة التأسيس", value: "2022م" },
-        { label: "المقر الرئيسي", value: "10 شارع الوحدة، المنشية، الغردقة، محافظة البحر الأحمر" },
+        { label: "المقر الرئيسي", value: "10 شارع الوحدة، الدهار، الغردقة، محافظة البحر الأحمر" },
         {
           label: "النطاق الجغرافي للأعمال",
           value:
@@ -741,18 +745,18 @@ export const CONTENT = {
       ],
     },
     vision: {
-      kicker: "التوجه الاستراتيجي",
+      kicker: "أهداف الشركة",
       title: "رؤية ورسالة الشركة",
       visionTitle: "رؤية الشركة",
       visionBody:
-        "أن نكون الشركة الرائدة في تقديم حلول هندسية مبتكرة ومستدامة لشبكات الطرق عبر دمج التكنولوجيا الحديثة مع الحفاظ على البيئة، مع ترك بصمة تميز في بناء المدن الذكية والطرق الآمنة التي تدعم الاقتصاد الوطني وتلبي تطلعات الأجيال القادمة.",
+        "أن نكون الشريك الموثوق والأول في تنفيذ مشروعات رصف الطرق والمقاولات العامة بمحافظة البحر الأحمر، من خلال تطبيق أعلى المواصفات الهندسية واختبارات المعمل لضمان جودة وسلامة الطرق.",
       missionTitle: "رسالة الشركة",
       missionBody:
-        "تقديم خدمات هندسية وإنشائية رفيعة المستوى في قطاع الطرق والمقاولات، بالاعتماد على كفاءة كادرنا الفني وأحدث التقنيات العالمية، مع الالتزام التام بأعلى درجات الدقة والجداول الزمنية وضمان أعلى مستويات السلامة لمرتادي الطرق.",
+        "تنفيذ الأعمال الإنشائية ورصف الطرق بأعلى جودة وفي المواعيد المحددة، بالاعتماد على خبرة كوادرنا الفنية وأحدث أسطول معدات ورصف معتمد.",
     },
     values: {
-      kicker: "ثوابت العمل",
-      title: "القيم الجوهرية للشركة",
+      kicker: "مبادئ العمل",
+      title: "قيم وأسس التنفيذ",
       items: [
         {
           no: "01",
@@ -924,8 +928,8 @@ export const CONTENT = {
       viewFull: "تثبيت وتكبير الصورة",
     },
     quality: {
-      kicker: "سياسة الجودة",
-      title: "التزامنا الراسخ بالجودة والمعايير القياسية",
+      kicker: "معايير الجودة",
+      title: "الالتزام بالمواصفات الفنية والتحاليل المعملية",
       intro:
         "تلتزم شركة البحر الأحمر للمقاولات ورصف الطرق بتطبيق أرفع معايير الجودة في كافة مشروعات البنية التحتية، إيماناً بأن الجودة هي الركيزة الأساسية لاستدامة الطرق وسلامة المجتمع.",
       principles: [
@@ -959,7 +963,7 @@ export const CONTENT = {
       kicker: "الأهداف المرحلية",
       title: "مؤشرات قياس الأداء والأهداف المحددة",
       intro:
-        "وضعت الشركة أهدافاً مرحلية كمية لضمان التطبيق الفعلي لسياسة الجودة وتحقيق التميز التشغيلي:",
+        "وضعت الشركة أهدافاً مرحلية كمية لضمان التطبيق الفعلي لمعايير الجودة وتحقيق التميز التشغيلي:",
       items: [
         {
           no: "1",
@@ -1014,9 +1018,51 @@ export const CONTENT = {
         { label: "الفنيون والعمالة الماهرة", value: "أطقم فنية متكاملة" },
       ],
     },
+        reviewsLocation: {
+      kicker: "المقر الرئيسي والموقع الجغرافي",
+      title: "موقع مقر الشركة على الخريطة",
+      subtitle: "تفضل بزيارة مقرنا الرئيسي بالغردقة أو التواصل المباشر معنا عبر خرائط جوجل، واتساب، وكافة منصاتنا الرسمية.",
+      googleRatingTitle: "تقييمات شركة البحر الاحمر للطرق والمقاولات العامة على Google",
+      googleRatingScore: "5.0",
+      googleRatingText: "ممتاز - بناءً على تقييمات العملاء المعتمدة في البحر الأحمر",
+      writeReviewCta: "قيمنا الآن على جوجل (Google Review)",
+      mapsTitle: "موقع المقر الرئيسي على Google Maps",
+      mapsAddress: "10 شارع الوحدة، الدهار، الغردقة، محافظة البحر الأحمر",
+      openMapsCta: "فتح الموقع في تطبيق الخرائط (Google Maps)",
+      socialHubTitle: "مركز التواصل المباشر والمنصات الرسمية",
+      socialHubSubtitle: "اختر القناة المناسبة للوصول المباشر والتواصل مع إدارة الشركة",
+      links: {
+        googleReview: "أضف تقييمك على جوجل",
+        googleMaps: "موقع الشركة على الخريطة",
+        whatsapp: "محادثة واتساب فورية",
+        website: "الموقع الإلكتروني الرسمي",
+        facebook: "صفحة الفيسبوك الرسمية",
+        phone: "الاتصال الهاتفي المباشر",
+      },
+      testimonials: [
+        {
+          quote: "من أفضل شركات رصف الطرق بالبحر الأحمر. سرعة ممتازة في التنفيذ وجودة دك وتسوية الأسفلت عالية جداً.",
+          author: "المهندس أسامة عبد الفتاح",
+          role: "استشاري مشاريع بالغردقة",
+          rating: 5,
+        },
+        {
+          quote: "تم تنفيذ ورصف شوارع منتجع بالجونة بأعلى مواصفات الفلاتة والالتزام التام بالجدول الزمني.",
+          author: "م. إبراهيم فؤاد",
+          role: "مدير مشروعات هندسية",
+          rating: 5,
+        },
+        {
+          quote: "أطقم عمل ميدانية محترفة ومعدات حديثة جداً. الالتزام بالمواصفات الفنية والجودة هو العنوان لديهم.",
+          author: "أحمد عبد المحسن",
+          role: "مشرف موقع عام",
+          rating: 5,
+        },
+      ],
+    },
     contact: {
       title: "تواصل مع شركة البحر الأحمر للطرق",
-      sub: "مستعدون لبدء تنفيذ المشروعات وتوفير كافة التوريدات والاستشارات الفنية بسرعة واحترافية.",
+      sub: "جاهزون للرد على استفساراتكم وتقديم العروض الفنية والاستشارات لأعمال الطرق والمقاولات العامة.",
       callUs: "اتصال هاتفي مباشر",
       whatsapp: "محادثات واتساب فورية",
       email: "البريد الإلكتروني",
@@ -1044,7 +1090,8 @@ export const CONTENT = {
       filterVideo: "Field Videos",
     },
     hero: {
-      tag: "Red Sea for Roads & General Contracting Company",
+      h1: "Red Sea for Roads & General Contracting Company",
+      tag: "Red Sea Roads | Contracting & Road Construction",
       title: "Excellence & Leadership in Road Construction & Infrastructure",
       subtitle:
         "Over 20 years of technical expertise delivering asphalt paving, waterproofing, dewatering, material supply, and structural repair across the Red Sea Governorate.",
@@ -1066,7 +1113,7 @@ export const CONTENT = {
         { label: "Year of Establishment", value: "2022" },
         {
           label: "Head Office",
-          value: "10 Al-Wahda Street, Al-Manshya, Hurghada, Red Sea Governorate, Egypt",
+          value: "10 Al-Wahda Street, El-Dahar, Hurghada, Red Sea Governorate, Egypt",
         },
         {
           label: "Geographical Scope",
@@ -1347,6 +1394,48 @@ export const CONTENT = {
       stats: [
         { label: "Specialized Engineers", value: "50+ Engineers" },
         { label: "Technicians & Skilled Workers", value: "Full Field Teams" },
+      ],
+    },
+        reviewsLocation: {
+      kicker: "HEADQUARTER & LOCATION",
+      title: "Company Headquarters on Google Maps",
+      subtitle: "Visit our main headquarters in Hurghada or contact us directly via Google Maps, WhatsApp, and official channels.",
+      googleRatingTitle: "Red Sea Roads Google Business Profile",
+      googleRatingScore: "5.0",
+      googleRatingText: "Excellent 5.0 rating from clients across Red Sea Governorate",
+      writeReviewCta: "Write a Review on Google",
+      mapsTitle: "Our Headquarter on Google Maps",
+      mapsAddress: "10 Al-Wahda Street, El-Dahar, Hurghada, Red Sea Governorate, Egypt",
+      openMapsCta: "Open Location in Google Maps",
+      socialHubTitle: "Direct Connect & Official Channels",
+      socialHubSubtitle: "Choose your preferred channel for instant communication with our team",
+      links: {
+        googleReview: "Rate Us on Google",
+        googleMaps: "View on Google Maps",
+        whatsapp: "Instant WhatsApp",
+        website: "Official Website",
+        facebook: "Official Facebook Page",
+        phone: "Direct Phone Call",
+      },
+      testimonials: [
+        {
+          quote: "One of the best road construction companies in the Red Sea. Execution speed and asphalt compaction quality are outstanding.",
+          author: "Eng. Osama Abdel Fattah",
+          role: "Hurghada Project Consultant",
+          rating: 5,
+        },
+        {
+          quote: "Paved resort streets in El Gouna. Delivered strictly on time with highest surface smoothness standards.",
+          author: "Eng. Ibrahim Fouad",
+          role: "Projects Manager",
+          rating: 5,
+        },
+        {
+          quote: "Full adherence to technical specifications, state-of-the-art fleet, and highly competent field staff.",
+          author: "Ahmed Abdel Mohsen",
+          role: "Site Supervisor",
+          rating: 5,
+        },
       ],
     },
     contact: {

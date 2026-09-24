@@ -38,15 +38,16 @@ import {
   CONTENT,
 } from "@/lib/translations";
 import { sendContactEmail } from "@/lib/emailjs";
+import { ReviewsAndLocationSection } from "@/components/ReviewsAndLocationSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق | Red Sea for Roads" },
+      { title: "شركة البحر الاحمر للطرق والمقاولات العامة | Red Sea for Roads" },
       {
         name: "description",
         content:
-          "شركة متخصصة في مقاولات ورصف الطرق، أعمال الأسفلت، العزل، التجفيف، التوريدات والترميم بمحافظة البحر الأحمر (الغردقة، رأس غارب، سفاجا، مرسى علم، الجونة).",
+          "شركة البحر الاحمر للطرق والمقاولات العامة بمحافظة البحر الأحمر. تنفيذ أعمال الطرق والأسفلت، الرصف، التمهيد، التسوية، والتطوير بجودة عالية.",
       },
     ],
   }),
@@ -412,18 +413,23 @@ function Index() {
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-8 text-center">
           {/* Eyebrow Tag */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-slate-900/80 dark:bg-red-950/60 backdrop-blur-md px-4 py-1.5 text-xs font-bold text-red-300 shadow-glow mb-6 rise">
-            <Sparkles className="size-3.5 text-red-400" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-slate-900/80 dark:bg-red-950/60 backdrop-blur-md px-5 py-2 text-xs sm:text-sm font-extrabold text-red-300 shadow-glow mb-6 rise">
+            <Sparkles className="size-4 text-red-400" />
             <span>{t.hero.tag}</span>
           </div>
 
-          {/* Main Title */}
-          <h1 className="mx-auto max-w-5xl text-3xl font-black tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl leading-tight sm:leading-none rise drop-shadow-md">
-            {t.hero.title}
+          {/* Main H1 Title for Search Engine Optimization */}
+          <h1 className="mx-auto max-w-6xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-tight sm:leading-tight rise drop-shadow-xl">
+            {t.hero.h1}
           </h1>
 
+          {/* Secondary Subheading */}
+          <p className="mx-auto mt-6 max-w-5xl text-xl sm:text-3xl md:text-4xl font-extrabold text-red-400 leading-snug rise drop-shadow">
+            {t.hero.title}
+          </p>
+
           {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-slate-200 dark:text-slate-300 sm:text-lg md:text-xl font-normal rise drop-shadow">
+          <p className="mx-auto mt-6 max-w-4xl text-base sm:text-xl md:text-2xl leading-relaxed text-slate-200 dark:text-slate-300 font-normal rise drop-shadow">
             {t.hero.subtitle}
           </p>
 
@@ -1361,6 +1367,9 @@ function Index() {
         </div>
       </section>
 
+      {/* SECTION: REVIEWS, GOOGLE MAPS LOCATION & SOCIAL HUB / التقييمات والموقع والتواصل */}
+      <ReviewsAndLocationSection lang={lang} />
+
       {/* SECTION: CONTACT FORM / نموذج التواصل */}
       <section id="contact-form" className="bg-white py-16 sm:py-20 dark:bg-[#0b1329]">
         <div className="mx-auto max-w-3xl px-4 sm:px-8">
@@ -1545,79 +1554,192 @@ function Index() {
         className="relative bg-[#060c1a] text-slate-200 pt-16 pb-12 overflow-hidden"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 border-b border-slate-800 pb-12">
-            {/* Left Info */}
-            <div className="space-y-6">
-              <img
-                src={IMAGES.logo}
-                alt="Red Sea For Roads Company Logo"
-                width={1584}
-                height={672}
-                loading="lazy"
-                decoding="async"
-                className="h-14 w-auto rounded-xl bg-white p-3 shadow-md"
-              />
-              <p className="text-sm leading-relaxed text-slate-400 max-w-md">
+          {/* Top Footer Info: Brand & HQ Address */}
+          <div className="grid gap-10 lg:grid-cols-12 items-center pb-10">
+            {/* Brand Brief (7 cols on lg) */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src={IMAGES.logo}
+                  alt="Red Sea For Roads Company Logo"
+                  width={1584}
+                  height={672}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-12 w-auto rounded-xl bg-white p-2.5 shadow-md"
+                />
+                <span className="text-xs font-bold text-slate-400 border-r border-slate-800 pr-3 mr-1">
+                  {lang === "ar" ? "سجل تجاري ومعتمد" : "Certified Business"}
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-400 max-w-xl">
                 {lang === "ar"
-                  ? "مستعدون لبدء تنفيذ المشروعات وتوفير كافة التوريدات والاستشارات الفنية بسرعة واحترافية."
-                  : "We are ready to execute your road and infrastructure projects with utmost speed, quality, and professionalism."}
+                  ? "شركة البحر الاحمر للطرق والمقاولات العامة - متخصصون في أعمال رصف الطرق والأسفلت والتطوير الإنشائي بكافة مدن ومراكز محافظة البحر الأحمر بأعلى معايير الجودة."
+                  : "Red Sea for Roads & General Contracting Company - Specialized in asphalt paving and infrastructure development across all Red Sea cities with highest quality standards."}
               </p>
-              <div className="space-y-3 text-sm">
-                {/* <a
-                  href={CONTACT_INFO.domainUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-red-400 font-bold hover:underline"
-                >
-                  <ExternalLink className="size-4" />
-                  <span>{CONTACT_INFO.domain}</span>
-                </a> */}
+            </div>
+
+            {/* HQ Address & Mail Card (5 cols on lg) */}
+            <div className="lg:col-span-5 space-y-3">
+              <div className="flex items-start gap-3 bg-slate-900/80 border border-slate-800/80 p-4 rounded-2xl shadow-inner">
+                <MapPin className="size-5 text-red-500 shrink-0 mt-0.5" />
+                <div className="text-start">
+                  <span className="block text-[11px] font-bold text-red-400 uppercase tracking-wider">
+                    {lang === "ar" ? "عنوان المقر الرئيسي" : "Headquarters Address"}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-200 mt-0.5 block leading-snug">
+                    {lang === "ar" ? CONTACT_INFO.locationAr : CONTACT_INFO.locationEn}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-3 px-1">
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center gap-2 text-red-400 font-bold hover:underline"
+                  className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-red-400 transition-colors"
                 >
                   <Mail className="size-4 text-red-500" />
                   <span>{CONTACT_INFO.email}</span>
                 </a>
-                <div className="flex items-start gap-2 text-slate-300">
-                  <MapPin className="size-4 text-red-500 shrink-0 mt-1" />
-                  <span>{lang === "ar" ? CONTACT_INFO.locationAr : CONTACT_INFO.locationEn}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Quick Actions */}
-            <div className="flex flex-col justify-between space-y-6">
-              {/* Direct Contact Links */}
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                  {lang === "ar" ? "التواصل المباشر والبريد" : "Direct Contact & Email"}
+                <span className="text-[11px] font-semibold text-slate-500" dir="ltr">
+                  TEL: {CONTACT_INFO.phoneDisplay}
                 </span>
-                <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href={CONTACT_INFO.whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl bg-emerald-600/90 px-4 py-2.5 text-xs font-bold text-white hover:bg-emerald-500 shadow-md transition-all"
-                  >
-                    <WhatsAppIcon className="size-4" />
-                    <span>WhatsApp</span>
-                  </a>
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="flex items-center gap-2 rounded-xl bg-slate-900 border border-slate-800 px-4 py-2.5 text-xs font-bold text-slate-200 hover:bg-red-600 hover:text-white hover:border-red-500 shadow-md transition-all"
-                  >
-                    <Mail className="size-4 text-red-500" />
-                    <span>{CONTACT_INFO.email}</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-8 text-center text-xs text-slate-500">
+          {/* SINGLE CLEAN DIVIDER LINE */}
+          <div className="border-t border-slate-800/80" />
+
+          {/* OFFICIAL CHANNELS & DIRECT CONNECT HUB GRID */}
+          <div className="py-10">
+            <div className="mb-6 text-center sm:text-start flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div>
+                <h4 className="text-base sm:text-lg font-black text-white flex items-center justify-center sm:justify-start gap-2">
+                  <Sparkles className="size-5 text-amber-400" />
+                  <span>{lang === "ar" ? "مركز التواصل المباشر والمنصات الرسمية" : "Official Direct Channels & Social Hub"}</span>
+                </h4>
+                <p className="text-xs text-slate-400 mt-1">
+                  {lang === "ar"
+                    ? "اختر القناة المناسبة للوصول المباشر والتواصل الفوري مع إدارة الشركة"
+                    : "Choose your preferred official channel to connect directly with our management"}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-6">
+              {/* 1. Google Maps */}
+              <a
+                href={CONTACT_INFO.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-red-500 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-red-500/10 text-red-400 group-hover:scale-105 transition-transform shrink-0 border border-red-500/20">
+                  <MapPin className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-red-300 transition-colors">
+                    {lang === "ar" ? "خرائط جوجل" : "Google Maps"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block">Google Maps</span>
+                </div>
+              </a>
+
+              {/* 2. Google Review */}
+              <a
+                href={CONTACT_INFO.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-amber-400 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 group-hover:scale-105 transition-transform shrink-0 border border-amber-400/20">
+                  <GoogleIcon className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-amber-300 transition-colors">
+                    {lang === "ar" ? "تقييم جوجل" : "Google Review"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block">Rate Us 5.0</span>
+                </div>
+              </a>
+
+              {/* 3. Facebook Page */}
+              <a
+                href={CONTACT_INFO.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-blue-500 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-blue-600/10 text-blue-500 group-hover:scale-105 transition-transform shrink-0 border border-blue-500/20">
+                  <FacebookIcon className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-blue-400 transition-colors">
+                    {lang === "ar" ? "فيسبوك" : "Facebook"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block">redsea.roads</span>
+                </div>
+              </a>
+
+              {/* 4. WhatsApp Direct */}
+              <a
+                href={CONTACT_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-emerald-500 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-105 transition-transform shrink-0 border border-emerald-500/20">
+                  <WhatsAppIcon className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-emerald-300 transition-colors">
+                    {lang === "ar" ? "واتساب مباشر" : "WhatsApp"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block" dir="ltr">0100 059 7912</span>
+                </div>
+              </a>
+
+              {/* 5. Official Website */}
+              <a
+                href={CONTACT_INFO.domainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-blue-400 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 group-hover:scale-105 transition-transform shrink-0 border border-blue-400/20">
+                  <Globe className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-blue-300 transition-colors">
+                    {lang === "ar" ? "الموقع الرسمي" : "Official Web"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block">redsearoadseg.com</span>
+                </div>
+              </a>
+
+              {/* 6. Phone Call Direct */}
+              <a
+                href={`tel:+${CONTACT_INFO.phoneRaw}`}
+                className="group flex items-center gap-3 rounded-2xl bg-slate-900/90 border border-slate-800 p-3.5 transition-all hover:border-red-400 hover:bg-slate-850 hover:-translate-y-0.5 shadow-sm"
+              >
+                <div className="flex size-10 items-center justify-center rounded-xl bg-red-500/10 text-red-400 group-hover:scale-105 transition-transform shrink-0 border border-red-500/20">
+                  <Phone className="size-5" />
+                </div>
+                <div className="overflow-hidden text-start">
+                  <span className="block text-xs font-bold text-white truncate group-hover:text-red-300 transition-colors">
+                    {lang === "ar" ? "اتصال مباشر" : "Direct Call"}
+                  </span>
+                  <span className="text-[10px] text-slate-400 truncate block" dir="ltr">0100 059 7912</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom Copyright */}
+          <div className="pt-6 border-t border-slate-800/60 text-center text-xs text-slate-500">
             {lang === "ar"
-              ? "جميع الحقوق محفوظة © شركة البحر الأحمر للمقاولات ورصف الطرق"
+              ? "جميع الحقوق محفوظة © شركة البحر الاحمر للطرق والمقاولات العامة"
               : "All Rights Reserved © Red Sea for Roads & General Contracting Company"}{" "}
           </div>
         </div>
@@ -1647,6 +1769,39 @@ function WhatsAppIcon({ className }: { className?: string }) {
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
       <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.12-.41-2.14-1.32-.79-.71-1.32-1.58-1.47-1.88-.15-.3-.02-.46.13-.61.15-.15.35-.4.5-.6.15-.2.2-.35.3-.55.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.32 5.07 4.53.71.29 1.26.46 1.69.59.72.22 1.37.19 1.89.12.58-.09 1.79-.73 2.04-1.44.25-.71.25-1.31.17-1.44-.07-.13-.27-.2-.57-.35Z" />
       <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.19-.31a8.16 8.16 0 0 1-1.25-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.26 8.21Z" />
+    </svg>
+  );
+}
+
+/* Custom Google Icon */
+function GoogleIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <path
+        fill="#4285F4"
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.62z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+      />
+    </svg>
+  );
+}
+
+/* Custom Facebook Icon */
+function FacebookIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
   );
 }
