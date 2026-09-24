@@ -43,11 +43,11 @@ import { ReviewsAndLocationSection } from "@/components/ReviewsAndLocationSectio
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "شركة البحر الاحمر للطرق والمقاولات العامة | Red Sea for Roads" },
+      { title: "شركة البحر الأحمر للطرق والمقاولات العامة | Red Sea for Roads" },
       {
         name: "description",
         content:
-          "شركة البحر الاحمر للطرق والمقاولات العامة بمحافظة البحر الأحمر. تنفيذ أعمال الطرق والأسفلت، الرصف، التمهيد، التسوية، والتطوير بجودة عالية.",
+          "شركة البحر الأحمر للطرق والمقاولات العامة بمحافظة البحر الأحمر. تنفيذ أعمال الطرق والأسفلت، الرصف، التمهيد، التسوية، والتطوير بجودة عالية.",
       },
     ],
   }),
@@ -419,17 +419,17 @@ function Index() {
           </div>
 
           {/* Main H1 Title for Search Engine Optimization */}
-          <h1 className="mx-auto max-w-6xl text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-tight sm:leading-tight rise drop-shadow-xl">
+          <h1 className="mx-auto max-w-5xl text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight rise drop-shadow-md">
             {t.hero.h1}
           </h1>
 
           {/* Secondary Subheading */}
-          <p className="mx-auto mt-6 max-w-5xl text-xl sm:text-3xl md:text-4xl font-extrabold text-red-400 leading-snug rise drop-shadow">
+          <p className="mx-auto mt-4 max-w-4xl text-lg sm:text-2xl md:text-3xl font-bold text-red-400 leading-snug rise drop-shadow">
             {t.hero.title}
           </p>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-6 max-w-4xl text-base sm:text-xl md:text-2xl leading-relaxed text-slate-200 dark:text-slate-300 font-normal rise drop-shadow">
+          <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-200 dark:text-slate-300 font-normal rise drop-shadow">
             {t.hero.subtitle}
           </p>
 
@@ -1574,7 +1574,7 @@ function Index() {
               </div>
               <p className="text-xs sm:text-sm leading-relaxed text-slate-400 max-w-xl">
                 {lang === "ar"
-                  ? "شركة البحر الاحمر للطرق والمقاولات العامة - متخصصون في أعمال رصف الطرق والأسفلت والتطوير الإنشائي بكافة مدن ومراكز محافظة البحر الأحمر بأعلى معايير الجودة."
+                  ? "شركة البحر الأحمر للطرق والمقاولات العامة - متخصصون في أعمال رصف الطرق والأسفلت والتطوير الإنشائي بكافة مدن ومراكز محافظة البحر الأحمر بأعلى معايير الجودة."
                   : "Red Sea for Roads & General Contracting Company - Specialized in asphalt paving and infrastructure development across all Red Sea cities with highest quality standards."}
               </p>
             </div>
@@ -1739,7 +1739,7 @@ function Index() {
           {/* Bottom Copyright */}
           <div className="pt-6 border-t border-slate-800/60 text-center text-xs text-slate-500">
             {lang === "ar"
-              ? "جميع الحقوق محفوظة © شركة البحر الاحمر للطرق والمقاولات العامة"
+              ? "جميع الحقوق محفوظة © شركة البحر الأحمر للطرق والمقاولات العامة"
               : "All Rights Reserved © Red Sea for Roads & General Contracting Company"}{" "}
           </div>
         </div>
