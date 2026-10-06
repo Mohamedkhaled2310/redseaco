@@ -176,3 +176,129 @@
 @utility rise {
   animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* ===== Contact Card / Linktree Route Styles ===== */
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logo-glow {
+  position: relative;
+}
+
+.logo-glow::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.35) 0%,
+    rgba(220, 38, 38, 0.2) 45%,
+    transparent 70%
+  );
+  filter: blur(28px);
+  z-index: -1;
+  animation: glow-breathe 6s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+.action-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px) saturate(165%);
+  -webkit-backdrop-filter: blur(30px) saturate(165%);
+  box-shadow:
+    0 8px 26px -12px rgba(0, 0, 0, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s,
+    background 0.25s,
+    box-shadow 0.25s;
+  -webkit-tap-highlight-color: transparent;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 14px 34px -12px rgba(0, 0, 0, 0.85),
+    0 0 24px -6px rgba(220, 38, 38, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.action-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.action-btn-primary {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.4), rgba(15, 23, 42, 0.7));
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.action-btn-primary:hover {
+  border-color: rgba(239, 68, 68, 0.75);
+  box-shadow:
+    0 14px 34px -12px rgba(0, 0, 0, 0.85),
+    0 0 32px -4px rgba(220, 38, 38, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.action-btn-whatsapp {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.35), rgba(15, 23, 42, 0.7));
+  border-color: rgba(37, 211, 102, 0.45);
+}
+
+.action-btn-whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.75);
+  box-shadow:
+    0 14px 34px -12px rgba(0, 0, 0, 0.85),
+    0 0 30px -4px rgba(37, 211, 102, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.action-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
