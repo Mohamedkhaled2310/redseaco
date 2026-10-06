@@ -2,6 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "installCommand": "npm install --legacy-peer-deps",
   "build": {
     "env": {
       "DANGEROUSLY_DEPLOY_VULNERABLE_TANSTACK_START_XSS": "1"
