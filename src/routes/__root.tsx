@@ -75,7 +75,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 const SITE_URL = "https://www.redsearoadseg.com";
 const SITE_TITLE_AR = "شركة البحر الأحمر للمقاولات العامة ورصف الطرق";
 const SITE_DESC_AR =
-  "شركة البحر الأحمر للمقاولات العامة ورصف الطرق بالغردقة ومحافظة البحر الأحمر. خبرة تتجاوز 20 عاماً في أعمال الأسفلت، الطرق، العزل، التجفيف والتوريدات العامة.";
+  "شركة البحر الأحمر للمقاولات العامة ورصف الطرق بمحافظة البحر الأحمر. تنفيذ أعمال الطرق والأسفلت، الرصف، التمهيد، التسوية، العزل، التجفيف والتوريدات العامة بجودة عالية.";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 const LOGO_URL = `${SITE_URL}/favicon-512x512.png`;
 
@@ -87,9 +87,10 @@ const structuredData = [
     name: "شركة البحر الأحمر للمقاولات العامة ورصف الطرق",
     alternateName: [
       "Red Sea for Roads & General Contracting Company",
+      "شركة البحر الاحمر للطرق والمقاولات العامة",
       "شركة البحر الأحمر للطرق",
       "Red Sea Roads",
-      "Red Sea for Roads Company",
+      "Red Sea Road Construction",
     ],
     url: SITE_URL,
     logo: {
@@ -105,7 +106,7 @@ const structuredData = [
     email: "Info@redsearoadseg.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "10 شارع الوحدة، المنشية",
+      streetAddress: "10 شارع الوحدة، الدهار",
       addressLocality: "الغردقة",
       addressRegion: "محافظة البحر الأحمر",
       addressCountry: "EG",
@@ -120,7 +121,7 @@ const structuredData = [
       },
     ],
     sameAs: [
-      "https://www.facebook.com",
+      "https://www.facebook.com/redsea.roads/",
       "https://www.instagram.com",
       "https://www.linkedin.com",
       "https://www.youtube.com",
@@ -140,7 +141,7 @@ const structuredData = [
     email: "Info@redsearoadseg.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "10 شارع الوحدة، المنشية",
+      streetAddress: "10 شارع الوحدة، الدهار",
       addressLocality: "الغردقة",
       addressRegion: "محافظة البحر الأحمر",
       addressCountry: "EG",
@@ -151,45 +152,60 @@ const structuredData = [
       longitude: "33.8116",
     },
     areaServed: [
-      "الغردقة",
-      "Hurghada",
-      "رأس غارب",
-      "Ras Ghareb",
-      "سهل حشيش",
-      "Sahl Hasheesh",
-      "سفاجا",
-      "Safaga",
-      "سوما باي",
-      "Soma Bay",
-      "القصير",
-      "El Quseir",
-      "مرسى علم",
-      "Marsa Alam",
-      "الجونة",
-      "El Gouna",
-      "محافظة البحر الأحمر",
-      "Red Sea Governorate",
+      { "@type": "City", name: "الغردقة" },
+      { "@type": "City", name: "رأس غارب" },
+      { "@type": "City", name: "سفاجا" },
+      { "@type": "City", name: "القصير" },
+      { "@type": "City", name: "مرسى علم" },
+      { "@type": "City", name: "الجونة" },
+      { "@type": "City", name: "سهل حشيش" },
+      { "@type": "AdministrativeArea", name: "محافظة البحر الأحمر" },
+    ],
+    knowsAbout: [
+      "شركة البحر الأحمر للمقاولات",
+      "شركة البحر الأحمر لرصف الطرق",
+      "مقاولات البحر الأحمر",
+      "رصف طرق البحر الأحمر",
+      "شركات المقاولات في البحر الأحمر",
+      "مقاولات عامة البحر الأحمر",
+      "رصف الطرق في البحر الأحمر",
+      "أعمال الطرق والأسفلت",
+      "مقاولات الغردقة",
+      "رصف طرق الغردقة",
+      "رصف طرق رأس غارب",
+      "رصف طرق سفاجا",
+      "رصف طرق القصير",
+      "رصف طرق مرسى علم",
+      "Red Sea Roads",
+      "Red Sea Road Construction",
+      "Road Construction in Red Sea",
     ],
     priceRange: "$$$",
     openingHours: "Mo-Th 08:00-17:00, Sa-Su 08:00-17:00",
+    sameAs: [
+      "https://www.facebook.com/redsea.roads/",
+      "https://www.instagram.com",
+      "https://www.linkedin.com",
+      "https://www.youtube.com",
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "خدمات المقاولات العامة ورصف الطرق",
+      name: "خدمات المقاولات العامة ورصف الطرق بالبحر الأحمر",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "أعمال الأسفلت ورصف الطرق",
-            description: "تنفيذ وتصميم أعمال الأسفلت ورصف وتخطيط الطرق بمواصفات قياسية.",
+            name: "أعمال الطرق والأسفلت ورصف الشوارع",
+            description: "تمهيد وتسوية ورصف الطرق الرئيسية والداخلية بالخلطة الأسفلتية المعتمدة والتخطيط الحراري.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "أعمال العزل والتجفيف",
-            description: "أعمال العزل المتكاملة وتجفيف المياه الجوفية والسطحية للمشروعات.",
+            name: "أعمال العزل والتجفيف وتنزح المياه",
+            description: "عزل مائي وحراري وتجفيف المياه الجوفية والسطحية للمشروعات والبيارات الخرسانية.",
           },
         },
         {
@@ -197,7 +213,15 @@ const structuredData = [
           itemOffered: {
             "@type": "Service",
             name: "التوريدات العامة ومواد البناء",
-            description: "توريد كافة مستلزمات ومواد البناء والسن والرمل الأساسية للمقاولات.",
+            description: "توريد مواد تأسيس الطرق، السن، الرمال الناعمة والخشنة لمشروعات المقاولات.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "التدعيم والترميم الإنشائي",
+            description: "أعمال الرش بالخرسانة المقذوفة (Shotcrete) وتدعيم الأعمدة والكتل الخرسانية.",
           },
         },
       ],
@@ -213,6 +237,18 @@ const structuredData = [
     description: SITE_DESC_AR,
     inLanguage: ["ar", "en"],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "الصفحة الرئيسية",
+        item: SITE_URL,
+      },
+    ],
+  },
 ];
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -225,7 +261,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "شركة البحر الأحمر للمقاولات, شركة البحر الاحمر للطرق, شركة الطرق والنقل, مقاولات رصف الطرق الغردقة, رصف طرق البحر الاحمر, شركة مقاولات الغردقة, Red Sea for Roads, شركة البحر الاحمر للمقاولات العامة, مقاول طرق البحر الاحمر, رصف اسفلت, عزل مباني وخزانات, Red Sea Roads, redsearoadseg.com",
+          "شركة البحر الاحمر للطرق والمقاولات العامة, شركة البحر الأحمر للمقاولات, شركة البحر الأحمر لرصف الطرق, مقاولات البحر الأحمر, رصف طرق البحر الأحمر, شركات المقاولات في البحر الأحمر, مقاولات عامة البحر الأحمر, رصف الطرق في البحر الأحمر, أعمال الطرق والأسفلت, مقاولات الغردقة, رصف طرق الغردقة, رصف طرق رأس غارب, رصف طرق سفاجا, رصف طرق القصير, رصف طرق مرسى علم, Red Sea Roads, Red Sea Road Construction, Road Construction in Red Sea, شركة البحر الاحمر للطرق, redsearoadseg.com",
       },
       { name: "author", content: "Red Sea for Roads Company" },
       {
@@ -277,6 +313,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap",
       },
       // Google Favicon Guidelines compliant square icons (multiples of 48px)
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
       { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" },
       { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
